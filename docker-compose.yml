@@ -116,6 +116,8 @@ services:
       - RUST_LOG=${RUST_LOG}
     volumes:
       - node1-data:/home/indy/ledger
+    depends_on:
+      - webserver  
 
   node2:
     image: von-network-base
@@ -133,6 +135,8 @@ services:
       - RUST_LOG=${RUST_LOG}
     volumes:
       - node2-data:/home/indy/ledger
+    depends_on:
+      - webserver  
 
   node3:
     image: von-network-base
@@ -150,6 +154,8 @@ services:
       - RUST_LOG=${RUST_LOG}
     volumes:
       - node3-data:/home/indy/ledger
+    depends_on:
+      - webserver  
 
   node4:
     image: von-network-base
@@ -167,6 +173,8 @@ services:
       - RUST_LOG=${RUST_LOG}
     volumes:
       - node4-data:/home/indy/ledger
+    depends_on:
+      - webserver
      
   node5:
     image: von-network-base
@@ -183,7 +191,9 @@ services:
       - LOG_LEVEL=${LOG_LEVEL}
       - RUST_LOG=${RUST_LOG}
     volumes:
-      - node5-data:/home/indy/ledger   
+      - node5-data:/home/indy/ledger
+    depends_on:
+      - webserver  
       
 
 networks:
