@@ -71,9 +71,9 @@ fi
 if [ ! -z $ipAddresses ]; then
     ipsArg="$ipAddresses"
 elif [ ! -z $ipAddress ]; then
-    ipsArg="$ipAddress","$ipAddress","$ipAddress","$ipAddress"
+    ipsArg="$ipAddress","$ipAddress","$ipAddress","$ipAddress","$ipAddress"
 else
-    ipsArg="$DOCKERHOST","$DOCKERHOST","$DOCKERHOST","$DOCKERHOST"
+    ipsArg="$DOCKERHOST","$DOCKERHOST","$DOCKERHOST","$DOCKERHOST","$DOCKERHOST"
 fi
 
 echo -e \\n\\n"================================================================================================"
@@ -107,8 +107,8 @@ if [ ! -z "$remapPorts" ]; then
     echo -e "- node_port => 9418"\\n
     echo -e mv ${genesisFileTemplatePath} ${genesisFileTemplateBackupPath}
     mv ${genesisFileTemplatePath} ${genesisFileTemplateBackupPath}
-    echo -e "cat ${genesisFileTemplateBackupPath} | sed 's~\(\"client_port\":\).\{4\}\(,\)~\180\2~g' | sed 's~\(\"node_port\":\).\{4\}\(,\)~\19418\2~g' > ${genesisFileTemplatePath}"
-    cat ${genesisFileTemplateBackupPath} | sed 's~\(\"client_port\":\).\{4\}\(,\)~\180\2~g' | sed 's~\(\"node_port\":\).\{4\}\(,\)~\19418\2~g' > ${genesisFileTemplatePath}
+    echo -e "cat ${genesisFileTemplateBackupPath} | sed 's~\(\"client_port\":\).\{5\}\(,\)~\180\2~g' | sed 's~\(\"node_port\":\).\{5\}\(,\)~\19418\2~g' > ${genesisFileTemplatePath}"
+    cat ${genesisFileTemplateBackupPath} | sed 's~\(\"client_port\":\).\{5\}\(,\)~\180\2~g' | sed 's~\(\"node_port\":\).\{5\}\(,\)~\19418\2~g' > ${genesisFileTemplatePath}
 fi
 
 #echo -e \\n"------------------------------------------------------------------------------------------------"
